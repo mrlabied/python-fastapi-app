@@ -1,0 +1,17 @@
+name : Filtres
+
+on: 
+  push:
+    branches: ["main" ,"feature/**"]
+    paths:
+        - "tests/**"
+        - "app/**"
+  pull_request:
+    types: [opened, synchronize]
+
+jobs:
+  Hello:
+    runs-on: ubuntu-latest
+    steps:
+      - name: echo declencher
+        run: echo "Déclenché !"
