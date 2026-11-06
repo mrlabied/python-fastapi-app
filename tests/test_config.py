@@ -11,7 +11,7 @@ def test_settings_default_values():
     assert test_settings.APP_ENV == "development"
     assert test_settings.DEBUG is False
     assert test_settings.HOST == "0.0.0.0"
-    assert test_settings.PORT == 8000
+    assert test_settings.PORT == 8001
     assert test_settings.LOG_LEVEL == "info"
 
 
