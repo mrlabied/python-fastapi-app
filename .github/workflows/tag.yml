@@ -1,0 +1,13 @@
+name : Tag Workflow
+on:
+  push:
+    tags:
+      - "v*"
+  pull_request:
+    types: [opened, synchronize]
+jobs:
+  Tag:
+    runs-on: ubuntu-latest
+    steps:
+      - name: echo declencher
+        run: echo "Déclenché !"
