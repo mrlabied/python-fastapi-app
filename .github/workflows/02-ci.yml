@@ -12,7 +12,7 @@ jobs:
               with:
                   python-version: 3.13
             - name: Installer les dépendances
-              run: pip install ruff
+              run: pip install requirements-dev.txt
             - name: Vérifier le style
               run: ruff check .
     build:
@@ -44,7 +44,10 @@ jobs:
               uses: actions/setup-python@v5
               with:
                   python-version: '3.13'
-            - name: Installer les dépendances
+            - name: Installer les dépendances de l'application
+              run: pip install -r requirements.txt
+            - name: installer les dépendances de test
               run: pip install -r requirements-dev.txt
+
             - name: Exécuter les tests
               run: pytest
