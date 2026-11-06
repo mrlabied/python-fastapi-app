@@ -12,7 +12,7 @@ jobs:
               with:
                   python-version: 3.13
             - name: Installer les dépendances
-              run: pip install requirements-dev.txt
+              run: pip install -r requirements-dev.txt
             - name: Vérifier le style
               run: ruff check .
     build:
