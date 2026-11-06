@@ -5,6 +5,15 @@ jobs:
         name: Lint - Ruff
         runs-on: ubuntu-latest
         steps:
+            - name: Afficher les informations de l'environnement
+              run: |
+                echo "Nom de l'application : $APP_NAME"
+                echo "Acteur : ${{ github.actor }}"
+                echo "Événement : ${{ github.event_name }}"
+                echo "Branche : ${{ github.ref_name }}"
+                echo "SHA : ${{ github.sha }}"
+                echo "OS : ${{ runner.os }}"
+
             - name: Récupérer le code
               uses: actions/checkout@v4
             - name: Installer Python 3.13
