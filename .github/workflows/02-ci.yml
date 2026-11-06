@@ -1,9 +1,6 @@
 
 name: CI
 
-env:
-  APP_NAME: fastapi-starter
-
 on: [push, pull_request]
 
 jobs:
@@ -27,6 +24,8 @@ jobs:
         run: ruff check .
 
       - name: Afficher les contextes
+        env:
+          APP_NAME: fastapi-starter
         run: |
           echo "Application: ${{ env.APP_NAME }}"
           echo "Acteur: ${{ github.actor }}"
