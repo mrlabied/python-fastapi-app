@@ -1,5 +1,7 @@
 name: CI
-on: [push]
+on: [push , pull_request]
+env:
+  APP_NAME: fastapi-starter
 jobs:
     lint:
         name: Lint - Ruff
