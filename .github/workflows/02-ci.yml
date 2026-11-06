@@ -18,7 +18,7 @@ jobs:
           python-version: '3.13'
 
       - name: Installer les dépendances
-        run: pip install -r requirements-dev.txt
+        run: pip install -r requirements-dev.txt -r requirements.txt
 
       - name: Vérifier le style
         run: ruff check .
