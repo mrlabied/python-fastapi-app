@@ -23,6 +23,7 @@ uvicorn app.main:app --reload --port 8000
 ```
 
 Open [http://localhost:8000](http://localhost:8000) and [http://localhost:8000/health](http://localhost:8000/health)
+Open now this link 
 
 ## Testing with Coverage
 
