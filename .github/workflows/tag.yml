@@ -1,0 +1,10 @@
+name: Tag CI
+on:
+  push:
+    tags:
+      - 'v*'
+jobs:
+  tag-job:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Tag version validé !"
