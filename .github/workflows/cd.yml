@@ -2,7 +2,7 @@ name: CD - Build, Infra & Deploy
 
 on:
   workflow_run:
-    workflows: ["CI"] # Doit correspondre exactement au 'name:' de votre fichier 02-ci.yml
+    workflows: ["CI"] # Doit correspondre exactement au 'name:' de votre fichier ci.yml
     types:
       - completed
     branches: [feature/tp-cd]
