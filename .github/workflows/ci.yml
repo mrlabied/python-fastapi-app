@@ -1,8 +1,8 @@
-name: CI - DEMO GitHub Actions
+name: CI
 
 on:
   push:
-    branches: [main]
+    branches: [feature/tp-cd]
 
 jobs:
   build:

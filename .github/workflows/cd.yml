@@ -1,0 +1,42 @@
+name: CD - Build, Infra & Deploy
+
+on:
+  workflow_run:
+    workflows: ["CI"] # Doit correspondre exactement au 'name:' de votre fichier 02-ci.yml
+    types:
+      - completed
+    branches: [feature/tp-cd]
+
+jobs:
+  docker-build-push:
+    name: Build & Push Image Docker
+    # Ne s'exécute que si la CI a réussi
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    runs-on: ubuntu-latest
+    outputs:
+      image_tag: ${{ steps.meta.outputs.sha_short }}
+
+    steps:
+      - name: Récupérer le code
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.workflow_run.head_sha }}
+
+      - name: Générer le tag de version court
+        id: meta
+        run: echo "sha_short=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
+
+      - name: Connexion au registre Docker
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Build et Push de l'image
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          push: true
+          tags: |
+            ${{ secrets.DOCKERHUB_USERNAME }}/fastapi-app:${{ steps.meta.outputs.sha_short }}
+            ${{ secrets.DOCKERHUB_USERNAME }}/fastapi-app:latest
