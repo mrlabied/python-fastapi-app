@@ -1,6 +1,8 @@
 # FastAPI Starter
 
-A minimal, production‑leaning FastAPI template with testing (coverage), linting/formatting, Docker, and CI. Ships with a root endpoint and a health check.
+A minimal, production‑leaning FastAPI template with testing (coverage), linting/formatting, Docker, and CI. Ships with a root endpoint and a health check. 
+
+# Premiere Modification
 
 ## Features
 - FastAPI + Uvicorn
@@ -54,3 +56,7 @@ GitHub Actions workflow runs linting and tests with coverage on Python 3.13. See
 ## License
 
 MIT. See [LICENSE](./LICENSE).
+
+
+Testing GitHub Actions pull_request event.
+

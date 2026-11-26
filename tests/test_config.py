@@ -6,13 +6,14 @@ from app.config import Settings, settings
 
 def test_settings_default_values():
     """Test that Settings class has correct default values."""
-    test_settings = Settings()
-    assert test_settings.APP_NAME == "FastAPI Starter"
-    assert test_settings.APP_ENV == "development"
-    assert test_settings.DEBUG is False
-    assert test_settings.HOST == "0.0.0.0"
-    assert test_settings.PORT == 8000
-    assert test_settings.LOG_LEVEL == "info"
+    with patch.dict(os.environ, {}, clear=True):
+        test_settings = Settings(_env_file=None)
+        assert test_settings.APP_NAME == "FastAPI Starter"
+        assert test_settings.APP_ENV == "development"
+        assert test_settings.DEBUG is False
+        assert test_settings.HOST == "0.0.0.0"
+        assert test_settings.PORT == 8000
+        assert test_settings.LOG_LEVEL == "info"
 
 
 def test_settings_from_env_vars():
