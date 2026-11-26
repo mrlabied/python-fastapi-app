@@ -2,6 +2,11 @@
 
 A minimal, production‑leaning FastAPI template with testing (coverage), linting/formatting, Docker, and CI. Ships with a root endpoint and a health check.
 
+# test
+
+## TP5
+Testing pull_request events and GitHub Actions contexts.
+
 ## Features
 - FastAPI + Uvicorn
 - Pydantic Settings for configuration management

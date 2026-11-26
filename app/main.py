@@ -7,6 +7,7 @@ app = FastAPI(
     debug=settings.DEBUG
 )
 
+# TP5: testing GitHub Actions path filters
 
 @app.get("/")
 def root():

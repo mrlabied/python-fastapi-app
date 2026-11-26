@@ -1,0 +1,14 @@
+
+name: Tags
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  tag-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Display tag
+        run: echo "Tag detected!"
