@@ -16,3 +16,7 @@ def root():
 @app.get("/health")
 def health():
     return {"ok": True}
+
+@app.get("/about")
+def about():
+    return {"application": settings.APP_NAME}
